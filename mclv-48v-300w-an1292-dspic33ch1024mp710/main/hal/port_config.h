@@ -1,11 +1,13 @@
 /*******************************************************************************
-  SecondaryCore Shared ADC Configuration Routine Header File
+  Hardware specific routine definition and interfaces Header File
 
   File Name:
-    adc.h
+    port_config.h
 
   Summary:
-    This header file lists ADC Configuration related functions and definitions
+    This file includes subroutine for initializing GPIO pins as analog/digital,
+    input or output etc. Also to PPS functionality to Remap-able input or output 
+    pins
 
   Description:
     Definitions in the file are for dsPIC33CH512MP508 MC PIM plugged onto
@@ -46,57 +48,36 @@
 * certify, or support the code.
 *
 *******************************************************************************/
-#ifndef _ADC_H
-#define _ADC_H
+#ifndef _PORTCONFIG_H
+#define _PORTCONFIG_H
 
-#ifdef __cplusplus  // Provide C++ Compatability
+#include <xc.h>
+
+#ifdef __cplusplus  // Provide C++ Compatibility
     extern "C" {
 #endif
-// *****************************************************************************
-// *****************************************************************************
-// Section: Included Files
-// *****************************************************************************
-// *****************************************************************************
-#include <xc.h>
-#include <stdint.h>
-#include "userparms.h"
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Constants
 // *****************************************************************************
 // *****************************************************************************
-// ADC MODULE Related Definitions
-#define ADCBUF_INV_A_IPHASE1    (int16_t)(-ADCBUF0)   
-#define ADCBUF_INV_A_IPHASE2    (int16_t)(-ADCBUF1)
-#define ADCBUF_INV_A_IBUS       ADCBUF12        
-        
-#define ADCBUF_SPEED_REF_A      ADCBUF19
-#define ADCBUF_VBUS_A           ADCBUF10
-#ifdef SINGLE_SHUNT
-#define EnableADCInterrupt()   _ADCAN12IE = 1
-#define DisableADCInterrupt()  _ADCAN12IE = 0
-#define ClearADCIF()           _ADCAN12IF = 0
-#define ClearADCIF_ReadADCBUF() ADCBUF12 
-        
-#define _ADCInterrupt _ADCAN12Interrupt        
-#else
-#define EnableADCInterrupt()   _ADCAN19IE = 1
-#define DisableADCInterrupt()  _ADCAN19IE = 0
-#define ClearADCIF()           _ADCAN19IF = 0
-#define ClearADCIF_ReadADCBUF() ADCBUF19
+// Digital I/O definitions
+// Debug LED
+// DIM LED(LD2) : PIN #11 (RD15)
+#define DIM_LED1                    LATDbits.LATD15
 
-#define _ADCInterrupt _ADCAN19Interrupt
-#endif
-        
 // *****************************************************************************
 // *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************
 // *****************************************************************************
-void InitializeADCs(void);
+void MapGPIOHWFunction(void);
+void SetupGPIOPorts(void);
 
 #ifdef __cplusplus  // Provide C++ Compatibility
     }
 #endif
-#endif      // end of ADC_H
+#endif      // end of PORTCONFIG_H
+
 

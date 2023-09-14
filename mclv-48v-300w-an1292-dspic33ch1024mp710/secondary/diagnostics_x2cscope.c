@@ -46,7 +46,7 @@
 #include <stdint.h>
 
 #define X2C_DATA __attribute__((section("x2cscope_data_buf")))
-#define X2C_BAUDRATE_DIVIDER 54
+#define X2C_BAUDRATE_DIVIDER 40
 #define X2C_BUFFER_SIZE 4900
 X2C_DATA static uint8_t X2C_BUFFER[X2C_BUFFER_SIZE];
     /*

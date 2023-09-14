@@ -589,7 +589,7 @@ void InitPWMGenerator1 (void)
        ? ?
        00001 = PCI Source #1
        00000 = Software PCI control bit (SWPCI) only*/
-    PG1FPCILbits.PSS = 22;
+    PG1FPCILbits.PSS = 20;
     
     /* PWM GENERATOR 1 Fault PCI REGISTER HIGH */
     PG1FPCIH     = 0x0000;
@@ -914,7 +914,7 @@ void InitPWMGenerator2 (void)
        ? ?
        00001 = PCI Source #1
        00000 = Software PCI control bit (SWPCI) only*/
-    PG2FPCILbits.PSS = 22;
+    PG2FPCILbits.PSS = 20;
     
     /* PWM GENERATOR 1 Fault PCI REGISTER HIGH */
     PG2FPCIH     = 0x0000;
@@ -1240,7 +1240,7 @@ void InitPWMGenerator3 (void)
        ? ?
        00001 = PCI Source #1
        00000 = Software PCI control bit (SWPCI) only*/
-    PG3FPCILbits.PSS = 22;
+    PG3FPCILbits.PSS = 20;
     
     /* PWM GENERATOR 1 Fault PCI REGISTER HIGH */
     PG3FPCIH     = 0x0000;

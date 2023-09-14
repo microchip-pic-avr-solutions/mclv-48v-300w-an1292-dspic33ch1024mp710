@@ -33,11 +33,12 @@ int main(void)
     
     MSI1CONbits.MTSIRQ = 0;
 
+    /* Routine to start SecondaryCore */
+    _start_secondary();
+
     /* Clock Configuration */
     InitOscillator(); 
     SetupGPIOPorts();
-    /* Routine to start SecondaryCore */
-    _start_secondary();
     
     DIM_LED1 = 1;
     while(1)

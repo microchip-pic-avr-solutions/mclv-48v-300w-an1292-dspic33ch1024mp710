@@ -113,14 +113,14 @@ void InitOscillator(void)
      *               N1             1    
      *
      *         (FPLLI * M)     1    (8 * 150)      1     
-     * FOSC = -------------- * - = -----------  * ---  = 200 MHz
-     *        (N1 * N2 * N3)   2   (1 * 3 * 1)     2
+     * FOSC = -------------- * - = -----------  * ---  = 150 MHz
+     *        (N1 * N2 * N3)   2   (1 * 4 * 1)     2
      *
-     * FCY  = 200 MHz / 2 =  100 MHz
+     * FCY  = 150 MHz / 2 =  75 MHz
      *
      * where,
      * N1 = CLKDIVbits.PLLPRE = 1 
-     * N2 = PLLDIVbits.POST1DIV = 3
+     * N2 = PLLDIVbits.POST1DIV = 4
      * N3 = PLLDIVbits.POST2DIV = 1 
      * M = PLLFBDbits.PLLFBDIV = 150
      */
@@ -135,7 +135,7 @@ void InitOscillator(void)
 
     /* PLL Output Divider #1 Ratio bits((denoted as 'N2' or POSTDIV#1)
      * N2 = PLLDIVbits.POST1DIV = 3                                           */
-    PLLDIVbits.POST1DIV = 3;
+    PLLDIVbits.POST1DIV = 4;
     
     /* PLL Output Divider #2 Ratio bits((denoted as 'N3' or POSTDIV#2)
      * N3 = PLLDIVbits.POST2DIV = 1                                           */

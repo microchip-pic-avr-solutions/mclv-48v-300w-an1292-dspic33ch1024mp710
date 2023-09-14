@@ -83,7 +83,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #pragma config BISTDIS = DISABLED       // Secondary core BIST on reset disable bit (Secondary core BIST on reset feature disabled)
 
 // FS1ICD
-#pragma config ICS = PGD3               // ICD Communication Channel Select bits (Communicate on PGC1 and PGD1)
+#pragma config ICS = PGD1               // ICD Communication Channel Select bits (Communicate on PGC1 and PGD1)
 #pragma config ISOLAT = ON              // Isolate the Secondary core core subsystem from the Main core subsystem during Debug (The Secondary core can operate (in debug mode) even if the SLVEN bit in the MSI is zero.)
 #pragma config NOBTSWP = OFF            // BOOTSWP Instruction Enable/Disable bit (BOOTSWP instruction is disabled)
 

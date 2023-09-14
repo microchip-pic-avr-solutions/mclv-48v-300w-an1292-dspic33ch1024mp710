@@ -169,18 +169,18 @@ void MapGPIOHWFunction(void)
     ANSELAbits.ANSELA4 = 1;
     TRISAbits.TRISA4 = 1;    // PIN23: S1MCLR3/S1AN1/S1CMP2A/S1PGA2P1/S1PGA3P2/S1RA4
     
-    //IBUS_EXT(S1AN13):DIM #35
-    ANSELDbits.ANSELD10 = 1;
-    TRISDbits.TRISD10 = 1;   //PIN38:S1AN13/S1CMP2B/S1RD10
+    //IBUS_EXT(S1AN12):DIM #35
+    ANSELCbits.ANSELC7 = 1;
+    TRISCbits.TRISC7 = 1;   //PIN50:S1AN12/S1ANC2/S1ANC3/S1CMP4D/S1CMP5D/S1CMP6D/S1RP55/S1RC7
 
     // Potentiometer #1 input - used as Speed Reference
     // POT1 : DIM #28
-    TRISAbits.TRISA1 = 1;          // PIN18: S1AN15/S1RA1
-    ANSELAbits.ANSELA1 = 1;
+    TRISEbits.TRISE6 = 1;          // PIN45: S1AN19/S1PGA3N2/S1RP86/S1RE6
+    ANSELEbits.ANSELE6 = 1;
 	
     /*DC Bus Voltage Signals : DIM:039*/
     ANSELCbits.ANSELC0 = 1;
-    TRISCbits.TRISC0 = 1;         //PIN15: S1AN10/S1RP48/S1RC0
+    TRISCbits.TRISC0 = 1;         //PIN10: S1AN10/S1CMP4A/S1RP48/S1RC0
     
     /* Digital SIGNALS */   
     // DIGITAL INPUT/OUTPUT PINS
@@ -201,23 +201,23 @@ void MapGPIOHWFunction(void)
     
     // Debug LEDs
     // LED1 : DIM #30
-    TRISEbits.TRISE2 = 0;          // PIN:17 - RE2 S1RE2
+    TRISEbits.TRISE15 = 0;          // PIN:17 - RE2 S1RE2
     // LED2 : DIM #32
-    TRISEbits.TRISE3 = 0;          // PIN:19 - RE3 S1RE3
+    TRISEbits.TRISE14 = 0;          // PIN:19 - RE3 S1RE3
 
     // Push button Switches
     // SW1 : DIM #34
-    TRISEbits.TRISE4 = 1;            // PIN:22 RE4 S1RE4
+    TRISBbits.TRISB14 = 1;            // PIN:22 RE4 S1RE4
     // SW2 : DIM #36
-    TRISEbits.TRISE5 = 1;            // PIN:24 RE5 S1RE5  
+    TRISEbits.TRISE0 = 1;            // PIN:24 RE5 S1RE5  
 	
 	/** Diagnostic Interface for MCLV-48V-300W.
         Re-map UART Channels to the device pins connected to the following 
         PIM pins on the Motor Control Development Boards .
         UART_RX : DIM #54 (Input)
         UART_TX : DIM #52 (Output)   */
-    _U1RXR = 47;
-    _RP46R = 0b000001;
+    _U1RXR = 109;
+    _RP110R = 0b000001;
     
     
 }

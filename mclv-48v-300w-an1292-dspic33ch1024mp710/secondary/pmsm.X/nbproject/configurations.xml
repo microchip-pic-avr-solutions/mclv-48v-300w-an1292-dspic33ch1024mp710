@@ -6,17 +6,19 @@
                    projectFiles="true">
       <logicalFolder name="hal" displayName="hal" projectFiles="true">
         <itemPath>../hal/adc.h</itemPath>
+        <itemPath>../hal/board_service.h</itemPath>
         <itemPath>../hal/clock.h</itemPath>
+        <itemPath>../hal/cmp.h</itemPath>
+        <itemPath>../hal/delay.h</itemPath>
+        <itemPath>../hal/measure.h</itemPath>
         <itemPath>../hal/port_config.h</itemPath>
         <itemPath>../hal/pwm.h</itemPath>
-        <itemPath>../hal/delay.h</itemPath>
-        <itemPath>../hal/board_service.h</itemPath>
         <itemPath>../hal/uart1.h</itemPath>
-        <itemPath>../hal/measure.h</itemPath>
-        <itemPath>../hal/cmp.h</itemPath>
       </logicalFolder>
       <logicalFolder name="library" displayName="library" projectFiles="true">
-        <logicalFolder name="mc-library" displayName="motor" projectFiles="true">
+        <logicalFolder name="library-motor"
+                       displayName="library-motor"
+                       projectFiles="true">
           <itemPath>../library/library-motor/motor_control.h</itemPath>
           <itemPath>../library/library-motor/motor_control_declarations.h</itemPath>
           <itemPath>../library/library-motor/motor_control_dsp.h</itemPath>
@@ -26,16 +28,20 @@
           <itemPath>../library/library-motor/motor_control_types.h</itemPath>
           <itemPath>../library/library-motor/motor_control_util.h</itemPath>
         </logicalFolder>
-        <logicalFolder name="x2cscope" displayName="x2cscope" projectFiles="true">
+        <logicalFolder name="library-x2cscope"
+                       displayName="library-x2cscope"
+                       projectFiles="true">
           <itemPath>../library/library-x2cscope/X2CScope.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>../control.h</itemPath>
+      <itemPath>../diagnostics.h</itemPath>
       <itemPath>../estim.h</itemPath>
       <itemPath>../fdweak.h</itemPath>
       <itemPath>../general.h</itemPath>
-      <itemPath>../userparms.h</itemPath>
+      <itemPath>../motor_control_noinline.h</itemPath>
       <itemPath>../singleshunt.h</itemPath>
+      <itemPath>../userparms.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -46,19 +52,19 @@
                    projectFiles="true">
       <logicalFolder name="hal" displayName="hal" projectFiles="true">
         <itemPath>../hal/adc.c</itemPath>
+        <itemPath>../hal/board_service.c</itemPath>
         <itemPath>../hal/clock.c</itemPath>
+        <itemPath>../hal/cmp.c</itemPath>
+        <itemPath>../hal/measure.c</itemPath>
         <itemPath>../hal/port_config.c</itemPath>
         <itemPath>../hal/pwm.c</itemPath>
         <itemPath>../hal/uart1.c</itemPath>
-        <itemPath>../hal/board_service.c</itemPath>
-        <itemPath>../hal/measure.c</itemPath>
-        <itemPath>../hal/cmp.c</itemPath>
+        <itemPath>../hal/device_configuration.c</itemPath>
       </logicalFolder>
+      <itemPath>../pmsm.c</itemPath>
+      <itemPath>../diagnostics_x2cscope.c</itemPath>
       <itemPath>../estim.c</itemPath>
       <itemPath>../fdweak.c</itemPath>
-      <itemPath>../pmsm.c</itemPath>
-      <itemPath>../motor_control_noinline.h</itemPath>
-      <itemPath>../diagnostics_x2cscope.c</itemPath>
       <itemPath>../singleshunt.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -75,22 +81,24 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>dsPIC33CH512MP508S1</targetDevice>
+        <targetDevice>dsPIC33CH1024MP710S1</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>ICD4Tool</platformTool>
         <languageToolchain>XC16</languageToolchain>
-        <languageToolchainVersion>2.00</languageToolchainVersion>
+        <languageToolchainVersion>2.10</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="dsPIC33CH-MP_DFP" vendor="Microchip" version="1.11.240"/>
+        <pack name="dsPIC33CH-MP_DFP" vendor="Microchip" version="1.14.357"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
+            <linkerLibFileItem>../library/library-motor/libmotor_control_dspic-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>../library/library-x2cscope/libx2cscope-generic-dspic-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -113,6 +121,216 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
+      <item path="../hal/adc.c" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../hal/adc.h" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../hal/board_service.c" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../hal/board_service.h" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../hal/cmp.c" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../hal/cmp.h" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../hal/delay.h" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../hal/measure.c" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../hal/measure.h" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../hal/port_config.c" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../hal/port_config.h" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../hal/pwm.c" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../hal/pwm.h" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../hal/uart1.c" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../hal/uart1.h" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
       <C30>
         <property key="cast-align" value="false"/>
         <property key="code-model" value="default"/>
@@ -131,7 +349,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="expand-pragma-config" value="false"/>
         <property key="extra-include-directories"
-                  value="..\hal;..;..\library\library-x2cscope;..\library\library-motor"/>
+                  value="..\;..\hal;..\library;..\library\library-motor;..\library\library-x2cscope"/>
         <property key="isolate-each-function" value="false"/>
         <property key="keep-inline" value="false"/>
         <property key="oXC16gcc-align-arr" value="false"/>
@@ -148,7 +366,7 @@
         <property key="oXC16gcc-sfr-warn" value="false"/>
         <property key="oXC16gcc-smar-io-lvl" value="1"/>
         <property key="oXC16gcc-smart-io-fmt" value=""/>
-        <property key="optimization-level" value="1"/>
+        <property key="optimization-level" value="0"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
         <property key="preprocessor-macros" value=""/>
@@ -162,8 +380,7 @@
       <C30-AS>
         <property key="assembler-symbols" value=""/>
         <property key="expand-macros" value="false"/>
-        <property key="extra-include-directories-for-assembler"
-                  value="..\lib;..;..\lib\motor_control"/>
+        <property key="extra-include-directories-for-assembler" value=""/>
         <property key="extra-include-directories-for-preprocessor" value=""/>
         <property key="false-conditionals" value="false"/>
         <property key="keep-locals" value="false"/>
@@ -195,7 +412,7 @@
         <property key="enable-handles" value="true"/>
         <property key="enable-pack-data" value="true"/>
         <property key="extra-lib-directories"
-                  value="..;..\library\library-motor;..\library\library-x2cscope"/>
+                  value="..\library\library-motor;..\library\library-x2cscope"/>
         <property key="fill-flash-options-addr" value=""/>
         <property key="fill-flash-options-const" value=""/>
         <property key="fill-flash-options-how" value="0"/>
@@ -207,8 +424,7 @@
         <property key="general-write-protect" value="no_write_protect"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="heap-size" value=""/>
-        <property key="input-libraries"
-                  value="q;motor_control_dspic;x2cscope-generic-dspic"/>
+        <property key="input-libraries" value="q"/>
         <property key="linker-stack" value="true"/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
@@ -247,15 +463,18 @@
         <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
       </C30Global>
-      <RealICEPlatformTool>
+      <ICD4Tool>
         <property key="ADC" value="true"/>
         <property key="AutoSelectMemRanges" value="auto"/>
         <property key="CLC 1" value="true"/>
         <property key="CLC 2" value="true"/>
         <property key="CLC 3" value="true"/>
         <property key="CLC 4" value="true"/>
+        <property key="CRC" value="true"/>
         <property key="DACFRZ" value="true"/>
         <property key="DMA" value="true"/>
+        <property key="ECCX" value="true"/>
+        <property key="ECCY" value="true"/>
         <property key="FRZ" value="true"/>
         <property key="Freeze All Other Peripherals" value="true"/>
         <property key="I2C 1" value="true"/>
@@ -263,6 +482,7 @@
         <property key="MCCP/SCCP 2" value="true"/>
         <property key="MCCP/SCCP 3" value="true"/>
         <property key="MCCP/SCCP 4" value="true"/>
+        <property key="MCCP/SCCP 5" value="true"/>
         <property key="PG1" value="true"/>
         <property key="PG2" value="true"/>
         <property key="PG3" value="true"/>
@@ -271,67 +491,76 @@
         <property key="PG6" value="true"/>
         <property key="PG7" value="true"/>
         <property key="PG8" value="true"/>
+        <property key="PTGFRZ" value="true"/>
         <property key="QEI1" value="true"/>
+        <property key="QEI2" value="true"/>
         <property key="REFO" value="true"/>
-        <property key="RIExTrigs.Five" value="OFF"/>
-        <property key="RIExTrigs.Four" value="OFF"/>
-        <property key="RIExTrigs.One" value="OFF"/>
-        <property key="RIExTrigs.Seven" value="OFF"/>
-        <property key="RIExTrigs.Six" value="OFF"/>
-        <property key="RIExTrigs.Three" value="OFF"/>
-        <property key="RIExTrigs.Two" value="OFF"/>
-        <property key="RIExTrigs.Zero" value="OFF"/>
+        <property key="SENT1" value="true"/>
+        <property key="SENT2" value="true"/>
         <property key="SPI 1" value="true"/>
+        <property key="SPI 2" value="true"/>
         <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="TIMER1" value="true"/>
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
-        <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="ToolFirmwareOption.UpdateOptions"
+                  value="ToolFirmwareOption.UseLatest"/>
+        <property key="ToolFirmwareToolPack"
+                  value="Press to select which tool pack to use"/>
+        <property key="communication.activationmode" value="nohv"/>
+        <property key="communication.interface"
+                  value="${communication.interface.default}"/>
+        <property key="communication.interface.jtag" value="2wire"/>
+        <property key="communication.speed" value="${communication.speed.default}"/>
+        <property key="debugoptions.debug-startup" value="Use system settings"/>
+        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
+        <property key="debugoptions.simultaneous.debug" value="false"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="event.recorder.enabled" value="false"/>
+        <property key="event.recorder.scvd.files" value=""/>
         <property key="hwtoolclock.frcindebug" value="false"/>
-        <property key="hwtoolclock.instructionspeed" value="4"/>
-        <property key="hwtoolclock.units" value="mips"/>
+        <property key="lastid" value=""/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.configurationmemory2" value="true"/>
         <property key="memories.dataflash" value="true"/>
         <property key="memories.eeprom" value="true"/>
+        <property key="memories.exclude.configurationmemory" value="true"/>
         <property key="memories.flashdata" value="true"/>
         <property key="memories.id" value="true"/>
-        <property key="memories.instruction.ram" value="true"/>
         <property key="memories.instruction.ram.ranges"
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
-        <property key="memories.programmemory.ranges" value="0-3fff"/>
+        <property key="memories.programmemory.ranges" value="0-15eff"/>
         <property key="poweroptions.powerenable" value="false"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.ledbrightness" value="5"/>
+        <property key="programoptions.pgcconfig" value="pull down"/>
+        <property key="programoptions.pgcresistor.value" value="4.7"/>
+        <property key="programoptions.pgdconfig" value="pull down"/>
+        <property key="programoptions.pgdresistor.value" value="4.7"/>
+        <property key="programoptions.pgmentry.voltage" value="low"/>
+        <property key="programoptions.pgmspeed" value="Min"/>
         <property key="programoptions.preservedataflash" value="false"/>
-        <property key="programoptions.preservedataflash.ranges" value=""/>
+        <property key="programoptions.preservedataflash.ranges"
+                  value="${memories.dataflash.default}"/>
         <property key="programoptions.preserveeeprom" value="false"/>
         <property key="programoptions.preserveeeprom.ranges" value=""/>
         <property key="programoptions.preserveprogram.ranges" value=""/>
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.program.otpconfig" value="false"/>
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
-        <property key="programoptions.usehighvoltageonmclr" value="false"/>
-        <property key="programoptions.uselvpprogramming" value="false"/>
-        <property key="tracecontrol.collectioninterval" value="1"/>
-        <property key="tracecontrol.collectionunits" value="1"/>
-        <property key="tracecontrol.disablemacros" value="false"/>
-        <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
-        <property key="tracecontrol.medium" value="0"/>
-        <property key="tracecontrol.select" value="0"/>
-        <property key="tracecontrol.stallontracebufferfull" value="false"/>
-        <property key="tracecontrol.timerpriority" value="3"/>
-        <property key="tracecontrol.timerselect" value="0"/>
-        <property key="tracecontrol.tracebufmax" value="546000"/>
-        <property key="tracecontrol.tracefile" value="defmplabxtrace.log"/>
-        <property key="tracecontrol.tracefilemax" value="10000000"/>
+        <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
+        <property key="toolpack.updateoptions"
+                  value="toolpack.updateoptions.uselatestoolpack"/>
+        <property key="toolpack.updateoptions.packversion"
+                  value="Press to select which tool pack to use"/>
         <property key="voltagevalue" value="3.25"/>
-      </RealICEPlatformTool>
+      </ICD4Tool>
       <Tool>
         <property key="ADC" value="true"/>
         <property key="AutoSelectMemRanges" value="auto"/>
@@ -339,8 +568,11 @@
         <property key="CLC 2" value="true"/>
         <property key="CLC 3" value="true"/>
         <property key="CLC 4" value="true"/>
+        <property key="CRC" value="true"/>
         <property key="DACFRZ" value="true"/>
         <property key="DMA" value="true"/>
+        <property key="ECCX" value="true"/>
+        <property key="ECCY" value="true"/>
         <property key="FRZ" value="true"/>
         <property key="Freeze All Other Peripherals" value="true"/>
         <property key="I2C 1" value="true"/>
@@ -348,6 +580,7 @@
         <property key="MCCP/SCCP 2" value="true"/>
         <property key="MCCP/SCCP 3" value="true"/>
         <property key="MCCP/SCCP 4" value="true"/>
+        <property key="MCCP/SCCP 5" value="true"/>
         <property key="PG1" value="true"/>
         <property key="PG2" value="true"/>
         <property key="PG3" value="true"/>
@@ -356,9 +589,14 @@
         <property key="PG6" value="true"/>
         <property key="PG7" value="true"/>
         <property key="PG8" value="true"/>
+        <property key="PTGFRZ" value="true"/>
         <property key="QEI1" value="true"/>
+        <property key="QEI2" value="true"/>
         <property key="REFO" value="true"/>
+        <property key="SENT1" value="true"/>
+        <property key="SENT2" value="true"/>
         <property key="SPI 1" value="true"/>
+        <property key="SPI 2" value="true"/>
         <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="TIMER1" value="true"/>
         <property key="ToolFirmwareFilePath"
@@ -368,14 +606,18 @@
         <property key="ToolFirmwareToolPack"
                   value="Press to select which tool pack to use"/>
         <property key="communication.activationmode" value="nohv"/>
-        <property key="communication.interface" value=""/>
+        <property key="communication.interface"
+                  value="${communication.interface.default}"/>
         <property key="communication.interface.jtag" value="2wire"/>
         <property key="communication.speed" value="${communication.speed.default}"/>
         <property key="debugoptions.debug-startup" value="Use system settings"/>
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.simultaneous.debug" value="false"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
-        <property key="freeze.timers" value="false"/>
+        <property key="event.recorder.enabled" value="false"/>
+        <property key="event.recorder.scvd.files" value=""/>
+        <property key="hwtoolclock.frcindebug" value="false"/>
+        <property key="lastid" value=""/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>
@@ -388,10 +630,8 @@
         <property key="memories.instruction.ram.ranges"
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
-        <property key="memories.programmemory.ranges" value="0-bfff"/>
-        <property key="memories.rww" value="true"/>
-        <property key="poweroptions.powerenable" value="true"/>
-        <property key="programmerToGoImageName" value="pmsm_ptg"/>
+        <property key="memories.programmemory.ranges" value="0-15eff"/>
+        <property key="poweroptions.powerenable" value="false"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.ledbrightness" value="5"/>
@@ -400,7 +640,7 @@
         <property key="programoptions.pgdconfig" value="pull down"/>
         <property key="programoptions.pgdresistor.value" value="4.7"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>
-        <property key="programoptions.pgmspeed" value="Med"/>
+        <property key="programoptions.pgmspeed" value="Min"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"
                   value="${memories.dataflash.default}"/>
@@ -409,103 +649,16 @@
         <property key="programoptions.preserveprogram.ranges" value=""/>
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.program.otpconfig" value="false"/>
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
-        <property key="ptgProgramImage" value="true"/>
-        <property key="ptgSendImage" value="true"/>
         <property key="toolpack.updateoptions"
                   value="toolpack.updateoptions.uselatestoolpack"/>
         <property key="toolpack.updateoptions.packversion"
                   value="Press to select which tool pack to use"/>
         <property key="voltagevalue" value="3.25"/>
       </Tool>
-      <pk4hybrid>
-        <property key="ADC" value="true"/>
-        <property key="AutoSelectMemRanges" value="auto"/>
-        <property key="CLC 1" value="true"/>
-        <property key="CLC 2" value="true"/>
-        <property key="CLC 3" value="true"/>
-        <property key="CLC 4" value="true"/>
-        <property key="DACFRZ" value="true"/>
-        <property key="DMA" value="true"/>
-        <property key="FRZ" value="true"/>
-        <property key="Freeze All Other Peripherals" value="true"/>
-        <property key="I2C 1" value="true"/>
-        <property key="MCCP/SCCP 1" value="true"/>
-        <property key="MCCP/SCCP 2" value="true"/>
-        <property key="MCCP/SCCP 3" value="true"/>
-        <property key="MCCP/SCCP 4" value="true"/>
-        <property key="PG1" value="true"/>
-        <property key="PG2" value="true"/>
-        <property key="PG3" value="true"/>
-        <property key="PG4" value="true"/>
-        <property key="PG5" value="true"/>
-        <property key="PG6" value="true"/>
-        <property key="PG7" value="true"/>
-        <property key="PG8" value="true"/>
-        <property key="QEI1" value="true"/>
-        <property key="REFO" value="true"/>
-        <property key="SPI 1" value="true"/>
-        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
-        <property key="TIMER1" value="true"/>
-        <property key="ToolFirmwareFilePath"
-                  value="Press to browse for a specific firmware version"/>
-        <property key="ToolFirmwareOption.UpdateOptions"
-                  value="ToolFirmwareOption.UseLatest"/>
-        <property key="ToolFirmwareToolPack"
-                  value="Press to select which tool pack to use"/>
-        <property key="communication.activationmode" value="nohv"/>
-        <property key="communication.interface" value=""/>
-        <property key="communication.interface.jtag" value="2wire"/>
-        <property key="communication.speed" value="${communication.speed.default}"/>
-        <property key="debugoptions.simultaneous.debug" value="false"/>
-        <property key="debugoptions.useswbreakpoints" value="false"/>
-        <property key="freeze.timers" value="false"/>
-        <property key="memories.aux" value="false"/>
-        <property key="memories.bootflash" value="true"/>
-        <property key="memories.configurationmemory" value="true"/>
-        <property key="memories.configurationmemory2" value="true"/>
-        <property key="memories.dataflash" value="true"/>
-        <property key="memories.eeprom" value="true"/>
-        <property key="memories.exclude.configurationmemory" value="true"/>
-        <property key="memories.flashdata" value="true"/>
-        <property key="memories.id" value="true"/>
-        <property key="memories.instruction.ram.ranges"
-                  value="${memories.instruction.ram.ranges}"/>
-        <property key="memories.programmemory" value="true"/>
-        <property key="memories.programmemory.ranges" value="0-bfff"/>
-        <property key="memories.rww" value="true"/>
-        <property key="poweroptions.powerenable" value="true"/>
-        <property key="programmerToGoImageName" value="pmsm_ptg"/>
-        <property key="programoptions.donoteraseauxmem" value="false"/>
-        <property key="programoptions.eraseb4program" value="true"/>
-        <property key="programoptions.ledbrightness" value="5"/>
-        <property key="programoptions.pgcconfig" value="pull down"/>
-        <property key="programoptions.pgcresistor.value" value="4.7"/>
-        <property key="programoptions.pgdconfig" value="pull down"/>
-        <property key="programoptions.pgdresistor.value" value="4.7"/>
-        <property key="programoptions.pgmentry.voltage" value="low"/>
-        <property key="programoptions.pgmspeed" value="Med"/>
-        <property key="programoptions.preservedataflash" value="false"/>
-        <property key="programoptions.preservedataflash.ranges"
-                  value="${memories.dataflash.default}"/>
-        <property key="programoptions.preserveeeprom" value="false"/>
-        <property key="programoptions.preserveeeprom.ranges" value=""/>
-        <property key="programoptions.preserveprogram.ranges" value=""/>
-        <property key="programoptions.preserveprogramrange" value="false"/>
-        <property key="programoptions.preserveuserid" value="false"/>
-        <property key="programoptions.programcalmem" value="false"/>
-        <property key="programoptions.programuserotp" value="false"/>
-        <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
-        <property key="ptgProgramImage" value="true"/>
-        <property key="ptgSendImage" value="true"/>
-        <property key="toolpack.updateoptions"
-                  value="toolpack.updateoptions.uselatestoolpack"/>
-        <property key="toolpack.updateoptions.packversion"
-                  value="Press to select which tool pack to use"/>
-        <property key="voltagevalue" value="3.25"/>
-      </pk4hybrid>
     </conf>
   </confs>
 </configurationDescriptor>

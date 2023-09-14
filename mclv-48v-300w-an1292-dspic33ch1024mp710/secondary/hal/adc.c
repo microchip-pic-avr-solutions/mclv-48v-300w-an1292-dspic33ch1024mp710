@@ -239,11 +239,11 @@ void InitializeADCs (void)
 	/*Vbus*/
 	ADMOD0Hbits.SIGN10 = 0;
     /*Ibus*/
-    ADMOD0Hbits.SIGN13 = 1;
-	/*POT*/
-    ADMOD0Hbits.SIGN15 = 0;
+    ADMOD0Hbits.SIGN12 = 1;
     /*ADMOD1L configures Output Data Sign for Analog inputs  AN16 to AN17 */
     ADMOD1L = 0x0000;
+	/*POT*/
+    ADMOD1Lbits.SIGN19 = 0;
     
     /* Ensuring all interrupts are disabled and Status Flags are cleared */
     ADIEL = 0;
@@ -297,21 +297,21 @@ void InitializeADCs (void)
        1 = Common and individual interrupts are enabled for analog channel
        0 = Common and individual interrupts are disabled for analog channel*/
 #ifdef SINGLE_SHUNT
-    _IE13        = 1 ;
+    _IE12        = 1 ;
     /* Clear ADC interrupt flag */
-    _ADCAN13IF    = 0 ;  
+    _ADCAN12IF    = 0 ;  
     /* Set ADC interrupt priority IPL 7  */ 
-    _ADCAN13IP   = 7 ;  
+    _ADCAN12IP   = 7 ;  
     /* Disable the AN1 interrupt  */
-    _ADCAN13IE    = 0 ;  
+    _ADCAN12IE    = 0 ;  
 #else        
-    _IE15        = 1 ;
+    _IE19        = 1 ;
     /* Clear ADC interrupt flag */
-    _ADCAN15IF    = 0 ;  
+    _ADCAN19IF    = 0 ;  
     /* Set ADC interrupt priority IPL 7  */ 
-    _ADCAN15IP   = 7 ;  
+    _ADCAN19IP   = 7 ;  
     /* Disable the AN17 interrupt  */
-    _ADCAN15IE    = 0 ;  
+    _ADCAN19IE    = 0 ;  
 #endif     
     _IE0        = 0 ;
     /* Clear ADC interrupt flag */
@@ -338,7 +338,7 @@ void InitializeADCs (void)
 
 #ifdef SINGLE_SHUNT
     /* Trigger Source for Analog Input #13  = 0b0101 for Ibus */
-    ADTRIG3Lbits.TRGSRC13 = 0x5;
+    ADTRIG3Lbits.TRGSRC12 = 0x5;
 #else
       /* Trigger Source for Analog Input #0  = 0b0100 for Ia */
     ADTRIG0Lbits.TRGSRC0 = 0x4;
@@ -348,6 +348,6 @@ void InitializeADCs (void)
 	/* Trigger Source for Analog Input #10  = 0b0100 for Vbus */
     ADTRIG2Hbits.TRGSRC10 = 0x4;
     /* Trigger Source for Analog Input #15  = 0b0100 for POT */
-    ADTRIG3Hbits.TRGSRC15 = 0x4;
+    ADTRIG4Hbits.TRGSRC19 = 0x4;
     
 }

@@ -65,9 +65,9 @@
 // Digital I/O definitions
 // Push button Switches
 // SW1 : DIM #34 (RE4)
-#define SW1                           PORTEbits.RE4
+#define SW1                           PORTBbits.RB14
 // SW2 : DIM #36 (RE5)
-#define SW2                           PORTEbits.RE5
+#define SW2                           PORTEbits.RE0
 
 // S2 : PIM #83 - Used as START/STOP button of Motor
 #define BUTTON_START_STOP             SW1
@@ -76,9 +76,9 @@
 
 // Debug LEDs
 // LED1(LD2) : DIM #30(RE2)
-#define LED1                    LATEbits.LATE2
+#define LED1                    LATEbits.LATE15
 // LED2(LD3) : DIM #32(RE3)
-#define LED2                    LATEbits.LATE3
+#define LED2                    LATEbits.LATE14
 
 
 // *****************************************************************************

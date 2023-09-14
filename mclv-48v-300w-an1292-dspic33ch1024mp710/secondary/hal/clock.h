@@ -65,14 +65,14 @@
 // *****************************************************************************
 // *****************************************************************************
 // OSCILLATOR Related Definitions
-// Oscillator frequency (Hz) - 200,000,000 Hz
-#define FOSC                    200000000UL
+// Oscillator frequency (Hz) - 150,000,000 Hz
+#define FOSC                    150000000UL
 // Oscillator frequency (MHz) - 200MHz
-#define FOSC_MHZ                200U     
-// Instruction cycle frequency (Hz) - 100,000,000 Hz
-#define FCY                     100000000UL
-// Instruction cycle frequency (MHz) - 100 MHz
-#define FCY_MHZ                 100U  
+#define FOSC_MHZ                150U     
+// Instruction cycle frequency (Hz) - 75,000,000 Hz
+#define FCY                     75000000UL
+// Instruction cycle frequency (MHz) - 75 MHz
+#define FCY_MHZ                 75U  
         
 // *****************************************************************************
 // *****************************************************************************

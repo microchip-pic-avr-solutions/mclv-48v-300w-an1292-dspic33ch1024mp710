@@ -52,7 +52,7 @@
 
 // <editor-fold defaultstate="expanded" desc="HEADER FILES ">
 
-#define FCY 100000000UL
+#define FCY 75000000UL
 #include <libpic30.h>
 
 // </editor-fold> 
