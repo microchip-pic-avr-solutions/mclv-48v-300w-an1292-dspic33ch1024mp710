@@ -1,7 +1,7 @@
 #include <xc.h>
 #include <libpic30.h>
-#include "pmsm.h"
 #include "clock.h"
+#include "port_config.h"
 
 // *****************************************************************************
 /* Function:
@@ -32,20 +32,17 @@ int main(void)
     RCONbits.SWDTEN = 0;
     
     MSI1CONbits.MTSIRQ = 0;
-      
-    /* Routine Program SecondaryCore */
-    _program_secondary(1,0,pmsm);
 
+    /* Clock Configuration */
+    InitOscillator(); 
+    SetupGPIOPorts();
     /* Routine to start SecondaryCore */
     _start_secondary();
     
-    /* Clock Configuration */
-    InitOscillator(); 
-    
+    DIM_LED1 = 1;
     while(1)
     {
         
     }
 
 }
-

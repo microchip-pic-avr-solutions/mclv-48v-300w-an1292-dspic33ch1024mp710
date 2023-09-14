@@ -96,26 +96,26 @@ void InitOscillator(void)
      * 
      * FOSC (Oscillator output frequency),FCY (Device Operating Frequency),
      * FVCO (VCO Output Frequency )is:
-     *         ( FPLLI * M)     (8 * 135)           
-     * FVCO = -------------- = -----------  = 1080 MHz
+     *         ( FPLLI * M)     (8 * 85)           
+     * FVCO = -------------- = -----------  = 680 MHz
      *               N1             1    
      *
-     *         (FPLLI * M)     1    (8 * 135)      1     
-     * FOSC = -------------- * - = -----------  * ---  = 180 MHz
-     *        (N1 * N2 * N3)   2   (1 * 3 * 1)     2
+     *         (FPLLI * M)     1    (8 * 85)      1     
+     * FOSC = -------------- * - = -----------  * ---  = 170 MHz
+     *        (N1 * N2 * N3)   2   (1 * 2 * 1)     2
      *
      * FCY  = 180 MHz / 2 =  90 MHz
      *
      * where,
      * N1 = CLKDIVbits.PLLPRE = 1 
-     * N2 = PLLDIVbits.POST1DIV = 3
+     * N2 = PLLDIVbits.POST1DIV = 2
      * N3 = PLLDIVbits.POST2DIV = 1 
-     * M = PLLFBDbits.PLLFBDIV = 135
+     * M = PLLFBDbits.PLLFBDIV = 85
      */
     
     /* PLL Feedback Divider bits (also denoted as ?M?, PLL multiplier)
-     * M = (PLLFBDbits.PLLFBDIV)= 135                                         */
-    PLLFBDbits.PLLFBDIV = 135;
+     * M = (PLLFBDbits.PLLFBDIV)= 170                                         */
+    PLLFBDbits.PLLFBDIV = 85;
 
     /* PLL Phase Detector I/P Divider Select bits(denoted as ?N1?,PLL pre-scaler)
      * N1 = CLKDIVbits.PLLPRE = 1                                             */
@@ -123,7 +123,7 @@ void InitOscillator(void)
 
     /* PLL Output Divider #1 Ratio bits((denoted as 'N2' or POSTDIV#1)
      * N2 = PLLDIVbits.POST1DIV = 3                                           */
-    PLLDIVbits.POST1DIV = 3;
+    PLLDIVbits.POST1DIV = 2;
     
     /* PLL Output Divider #2 Ratio bits((denoted as 'N3' or POSTDIV#2)
      * N3 = PLLDIVbits.POST2DIV = 1                                           */
@@ -177,3 +177,5 @@ void EnableREFCLKOutput(uint16_t Divider)
         REFOCONLbits.ROEN = 1;
     }
 }
+
+
