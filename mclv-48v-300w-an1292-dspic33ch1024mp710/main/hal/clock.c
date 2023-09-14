@@ -9,7 +9,7 @@
     Clock Output
 
   Description:
-    Definitions in the file are for dsPIC33CH512MP508 PIM plugged onto
+    Definitions in the file are for dsPIC33CH1024MP710 DIM plugged onto
     Motor Control Development board from Microchip
 
 *******************************************************************************/
@@ -104,7 +104,7 @@ void InitOscillator(void)
      * FOSC = -------------- * - = -----------  * ---  = 170 MHz
      *        (N1 * N2 * N3)   2   (1 * 2 * 1)     2
      *
-     * FCY  = 180 MHz / 2 =  90 MHz
+     * FCY  = 170 MHz / 2 =  85 MHz
      *
      * where,
      * N1 = CLKDIVbits.PLLPRE = 1 

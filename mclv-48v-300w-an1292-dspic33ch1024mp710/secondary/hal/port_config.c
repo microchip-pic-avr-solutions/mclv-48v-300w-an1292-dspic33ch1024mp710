@@ -10,7 +10,7 @@
     pins
 
   Description:
-    Definitions in the file are for dsPIC33CH512MP508 MC DIM plugged onto
+    Definitions in the file are for dsPIC33CH1024MP710 MC DIM plugged onto
     Motor Control Development board from Microchip
  
 *******************************************************************************/
@@ -125,6 +125,14 @@ void SetupGPIOPorts(void)
         ANSELE = 0x0000;
     #endif
 
+    #ifdef TRISF
+        TRISF = 0xFFFF;
+        LATF  = 0x0000;
+    #endif
+    #ifdef ANSELF
+        ANSELF = 0x0000;
+    #endif
+
     MapGPIOHWFunction();
 
     return;
@@ -163,11 +171,11 @@ void MapGPIOHWFunction(void)
     
     // IA_EXT(S1AN0) : DIM #19
     ANSELAbits.ANSELA3 = 1;
-    TRISAbits.TRISA3 = 1;    // PIN21 : S1AN0/S1CMP1A/S1PGA1P1/S1RA3
+    TRISAbits.TRISA3 = 1;    // PIN27 : S1AN0/S1CMP1A/S1PGA1P1/S1RA3
 
     // IB_EXT(S1AN1) : DIM #27
     ANSELAbits.ANSELA4 = 1;
-    TRISAbits.TRISA4 = 1;    // PIN23: S1MCLR3/S1AN1/S1CMP2A/S1PGA2P1/S1PGA3P2/S1RA4
+    TRISAbits.TRISA4 = 1;    // PIN30: S1AN1/S1CMP2A/S1PGA2P1/S1PGA3P2/S1RA4
     
     //IBUS_EXT(S1AN12):DIM #35
     ANSELCbits.ANSELC7 = 1;
@@ -180,18 +188,18 @@ void MapGPIOHWFunction(void)
 	
     /*DC Bus Voltage Signals : DIM:039*/
     ANSELCbits.ANSELC0 = 1;
-    TRISCbits.TRISC0 = 1;         //PIN10: S1AN10/S1CMP4A/S1RP48/S1RC0
+    TRISCbits.TRISC0 = 1;         //PIN17: S1AN10/S1CMP4A/S1RP48/S1RC0
     
     /* Digital SIGNALS */   
     // DIGITAL INPUT/OUTPUT PINS
 
     // Inverter Control - PWM Outputs
-    // PWM1L : DIM #03  RP59/RC11/S1RP59/S1PWM1L/S1RC11
-    // PWM1H : DIM #01  RP58/RC10 S1RP58/S1PWM1H/S1RC10
-    // PWM2L : DIM #07  RP53/RC5 S1RP53/S1PWM2L/S1RC5
-    // PWM2H : DIM #05  RP52/RC4 S1RP52/S1PWM2H/S1RC4
-    // PWM3L : DIM #04  RP67/RD3 S1RP67/S1PWM3L/S1RD3
-    // PWM3H : DIM #02  RP68/RD4 S1RP68/S1PWM3H/S1RD4
+    // PWM1L : DIM #03  PIN83: S1RP59/S1PWML1/S1RC11
+    // PWM1H : DIM #01  PIN82: S1RP58S1PWMH1/S1RC10
+    // PWM2L : DIM #07  PIN81: S1RP53/S1PWML2/S1RC5
+    // PWM2H : DIM #05  PIN79: S1RP52/S1PWMH2/S1RC4
+    // PWM3L : DIM #04  PIN85: S1RP67/S1PWML3
+    // PWM3H : DIM #02  PIN84: S1RP68/S1PWMH3/S1RD4
     TRISCbits.TRISC10 = 0 ;          
     TRISCbits.TRISC11 = 0 ;         
     TRISCbits.TRISC4 = 0 ;          
@@ -201,21 +209,21 @@ void MapGPIOHWFunction(void)
     
     // Debug LEDs
     // LED1 : DIM #30
-    TRISEbits.TRISE15 = 0;          // PIN:17 - RE2 S1RE2
+    TRISEbits.TRISE15 = 0;          // PIN:99 S1RP95/S1RE15
     // LED2 : DIM #32
-    TRISEbits.TRISE14 = 0;          // PIN:19 - RE3 S1RE3
+    TRISEbits.TRISE14 = 0;          // PIN:97 S1RP94/S1RPO54/S1RE14
 
     // Push button Switches
     // SW1 : DIM #34
-    TRISBbits.TRISB14 = 1;            // PIN:22 RE4 S1RE4
+    TRISBbits.TRISB14 = 1;            // PIN:1 S1RP46/S1RB14
     // SW2 : DIM #36
-    TRISEbits.TRISE0 = 1;            // PIN:24 RE5 S1RE5  
+    TRISEbits.TRISE0 = 1;            // PIN:2 S1RP80/S1RE0  
 	
 	/** Diagnostic Interface for MCLV-48V-300W.
         Re-map UART Channels to the device pins connected to the following 
-        PIM pins on the Motor Control Development Boards .
-        UART_RX : DIM #54 (Input)
-        UART_TX : DIM #52 (Output)   */
+        DIM pins on the Motor Control Development Boards .
+        UART_RX : DIM #54 (Input) - PIN:73 S1RP110/S1RF14
+        UART_TX : DIM #52 (Output) - PIN:74 S1RP109/S1RF13   */
     _U1RXR = 109;
     _RP110R = 0b000001;
     

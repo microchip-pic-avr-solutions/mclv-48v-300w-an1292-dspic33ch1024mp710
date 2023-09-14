@@ -10,7 +10,7 @@
     pins
 
   Description:
-    Definitions in the file are for dsPIC33CH512MP508 MC DIM plugged onto
+    Definitions in the file are for dsPIC33CH1024MP710 MC DIM plugged onto
     Motor Control Development board from Microchip
  
 *******************************************************************************/
@@ -122,6 +122,14 @@ void SetupGPIOPorts(void)
     #endif
     #ifdef ANSELE
         ANSELE = 0x0000;
+    #endif
+
+    #ifdef TRISF
+        TRISF = 0xFFFF;
+        LATF  = 0x0000;
+    #endif
+    #ifdef ANSELF
+        ANSELF = 0x0000;
     #endif
 
     MapGPIOHWFunction();

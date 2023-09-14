@@ -4,7 +4,7 @@
  *
  * This file includes board service routines like pushbutton scanning etc.
  * 
- * Definitions in this file are for dsPIC33CH512MP508 External Op-AMP MC PIM
+ * Definitions in this file are for dsPIC33CH1024MP710 External Op-AMP MC DIM
  * plugged onto Motor Control Development board from Microchip.
  * 
  * Component: Slave1 Core - HAL - BOARD SERVICE

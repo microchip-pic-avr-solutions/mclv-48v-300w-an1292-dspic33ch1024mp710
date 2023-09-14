@@ -4,7 +4,7 @@
  *
  * This header file lists interface functions - user interface 
  * 
- * Definitions in this file are for dsPIC33CH512MP508 External Op-AMP MC PIM
+ * Definitions in this file are for dsPIC33CH1024MP710 External Op-AMP MC DIM
  * plugged onto Motor Control Development board from Microchip.
  * 
  * Component: HAL - BOARD SERVICE

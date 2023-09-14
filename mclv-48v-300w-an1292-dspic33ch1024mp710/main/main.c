@@ -36,7 +36,7 @@ int main(void)
     /* Routine to start SecondaryCore */
     _start_secondary();
 
-    /* Clock Configuration */
+    /* Clock and GPIO Configuration */
     InitOscillator(); 
     SetupGPIOPorts();
     

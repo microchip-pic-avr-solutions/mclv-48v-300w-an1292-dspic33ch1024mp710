@@ -9,7 +9,7 @@
     Clock Output
 
   Description:
-    Definitions in the file are for dsPIC33CH512MP508 PIM plugged onto
+    Definitions in the file are for dsPIC33CH1024MP710 DIM plugged onto
     Motor Control Development board from Microchip
 
 *******************************************************************************/

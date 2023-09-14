@@ -10,7 +10,7 @@
     pins
 
   Description:
-    Definitions in the file are for dsPIC33CH512MP508 MC PIM plugged onto
+    Definitions in the file are for dsPIC33CH1024MP710 MC DIM plugged onto
     Motor Control Development board from Microchip
 
 *******************************************************************************/
