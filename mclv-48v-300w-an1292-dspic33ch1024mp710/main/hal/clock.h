@@ -55,14 +55,14 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // OSCILLATOR Related Definitions
 // Instruction cycle frequency (Hz)
 // OSCILLATOR Related Definitions
-// Oscillator frequency (Hz) - 180,000,000 Hz
-#define FOSC                    180000000UL
-// Oscillator frequency (MHz) - 180MHz
-#define FOSC_MHZ                180U     
-// Instruction cycle frequency (Hz) - 90,000,000 Hz
-#define FCY                     90000000UL
-// Instruction cycle frequency (MHz) - 90 MHz
-#define FCY_MHZ                 90U      
+// Oscillator frequency (Hz) - 170,000,000 Hz
+#define FOSC                    170000000UL
+// Oscillator frequency (MHz) - 170MHz
+#define FOSC_MHZ                170U     
+// Instruction cycle frequency (Hz) - 85,000,000 Hz
+#define FCY                     85000000UL
+// Instruction cycle frequency (MHz) - 85 MHz
+#define FCY_MHZ                 85U      
 // *****************************************************************************
 // *****************************************************************************
 // Section: Interface Routines
