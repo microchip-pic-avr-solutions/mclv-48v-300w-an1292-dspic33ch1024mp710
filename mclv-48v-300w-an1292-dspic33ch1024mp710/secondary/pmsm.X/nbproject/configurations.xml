@@ -43,6 +43,11 @@
       <itemPath>../singleshunt.h</itemPath>
       <itemPath>../userparms.h</itemPath>
     </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="true">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
                    projectFiles="true">
@@ -66,11 +71,6 @@
       <itemPath>../estim.c</itemPath>
       <itemPath>../fdweak.c</itemPath>
       <itemPath>../singleshunt.c</itemPath>
-    </logicalFolder>
-    <logicalFolder name="ExternalFiles"
-                   displayName="Important Files"
-                   projectFiles="false">
-      <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>

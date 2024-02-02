@@ -20,7 +20,7 @@ To clone or download this application firmware on GitHub,
 >In this document, hereinafter this firmware package is referred as **firmware.**
 ### 2.2 Software Tools Used for Testing the firmware
 
-- MPLAB® X IDE **v6.15** 
+- MPLAB® X IDE **v6.20** 
 - DFP: **dsPIC33CH-MP_DFP v1.15.378**
 - MPLAB® XC-DSC Compiler **v3.00**
 - MPLAB® X IDE Plugin: **X2C-Scope v1.6.6** 
@@ -91,12 +91,14 @@ In MPLAB X IDE, the code for two cores is developed as separate projects with th
 - Device selection in Main Project (code for **Main Core**) is **dsPIC33CH1024MP710**
 - Device selection in Secondary Project (code for **Secondary Core**) is **dsPIC33CH1024MP710S1**
 
-Hence the firmware used in this demonstration consists of two MPLAB X projects, **main.X** (**Main Project**) and **pmsm.X** (**Secondary Project**). 
+Hence the firmware used in this demonstration consists of two MPLAB X projects, **main.X** (**Main Project**) and **pmsm.X** (**Secondary Project**). User must program each project independently before running the demo application.The detailed steps are outline in the section [5.2 Basic Demonstration](#52-basic-demonstration)
+
+In this this application demo firmware, the project main.X for the Main core configures the secondary core pins and enable the Secondary Core. The second project pmsm.X for the Secondary autonomously run the Motor Control Demo application after programming. This Motor Control Demo application uses a push button to start or stop the motor and a potentiometer to vary the speed of the motor.
 
 The function of the Main Core is defined by the Main Project **main.X**, they are:
 - To set device configuration bits applicable for both Main and Secondary cores (Configuration bits for Main and Secondary cores exist in Main core). Note that the configuration bits decide the I/O port ownership between Main Core and Secondary Core. 
 - Configure Main Core Oscillator Subsystem to generate clocks needed to operate Core and its peripherals. In the firmware, Main is configured to run at 85MHz.
--  **-----The main core enables the Secondary core by invoking XC-DSC library (<code>libpic30.h</code>) routines and <code>_start_secondary()</code>.----**
+- The main core enables the Secondary core by invoking <code>_start_secondary()</code> rountine in the XC-DSC library (<code>libpic30.h</code>).
 
 The function of the Secondary Core (as defined in the Secondary Project **pmsm.X**) is:
 - To configure Secondary Core Oscillator Subsystem to generate clocks needed to operate core and its peripherals. In the firmware, the Secondary core is configured to operate at 75MHz.
@@ -107,7 +109,7 @@ The firmware directory structure is shown below: **--Image Change--**
 <p align="left">
 <img  src="images/firmwarestructure.png"></p>
 
-**----Program the Main Core configure the secondary core pins and enables the Secondary Core. Program the Secondary Core separately to autonomously run the Motor Control Demo application. The Motor Control Demo application uses a push button to start or stop the motor and a potentiometer to vary the speed of the motor.----**
+
 
 This Motor Control Demo Application configures and uses peripherals like PWM, ADC, UART, etc. For more details, refer to Microchip Application note **AN1292, “Sensorless Field Oriented Control (FOC) for a Permanent Magnet Synchronous Motor (PMSM) Using a PLL Estimator and Field Weakening (FW),”** available on the [Microchip website.]((https://www.microchip.com/).)
 
@@ -181,24 +183,32 @@ Follow the below instructions, step by step, to set up and run the motor control
 
      This step is required to build the Secondary Project with a specific compiler version.
 
-8. Ensure that the checkbox **Load symbols when programming or building for production (slows process)** is checked under the **Loading** category of the **Project Properties** window of **Secondary** project **pmsm.X**       
+9. Ensure that the checkbox **Load symbols when programming or building for production (slows process)** is checked under the **Loading** category of the **Project Properties** window of **Secondary** project **pmsm.X**       
         
       <p align="left">
       <img  src="images/loadvariables.png"></p>
 
-9. To build the secondary project (in this case, **pmsm.X**) and program the device dsPIC33CH1024MP710S1, click **Make and Program Device Main project** on the toolbar.
+    Also, go to **Tools > Options** and
+           
+      <p align="left">
+      <img  src="images/tools_options.png"></p>
+      
+    ensure in the  **Embedded > Generic Settings** tab **ELF debug session symbol load methodology (MIPS/ARM)** is selected as **Pre-procesed (Legacy)** from the drop down.
+           
+      <p align="left">
+      <img  src="images/embedded_legacy.png"></p>
+
+10. To build the secondary project (in this case, **pmsm.X**) and program the device dsPIC33CH1024MP710S1, click **Make and Program Device Main project** on the toolbar.
 
      Upon this, MPLAB X IDE begin executing the following activities in order:
      - Builds Secondary Project **pmsm.X** 
-     - Programs Main flash memory of dsPIC33CH1024MP710S1 with code generated when building the Main Project and the Secondary Project. 
+     - Programs Main flash memory of dsPIC33CH1024MP710S1 with code generated when building the Secondary Project. 
 
     <p align="left">
     <img  src="images/deviceprogrammingsecondary.png"></p>
 
-----**
      > **Note:**</br>
-     > In this firmware configuration, the Main Core and the Secondary Core are programmed separately. When device is programmed, the Secondary core is enabled from the Main core </p>
-  **---
+     > In this firmware configuration, the Main Core and the Secondary Core are programmed separately. </p>
 
 10. If the device is successfully programmed, **LD2 (LED1)** will be turned **ON**, indicating that the dsPIC® DSC is enabled.
     <p align="left">
