@@ -4,21 +4,21 @@
    "content":{
       "metaDataVersion":"1.3.0",
       "name":"com.microchip.mplabx.project.mclv-48v-300w-an1292-dspic33ch1024mp710",
-      "version":"x.x.x",
-      "displayName":"xxxxxxxxxxxxxxx",
+      "version":"1.0.0",
+      "displayName":"AN1292 dsPIC33CH1024MP710 MCLV-48V-300W",
       "projectName":"mclv-48v-300w-an1292-dspic33ch1024mp710",
-      "shortDescription":"xxxxxxxxxxxxxxx",
+      "shortDescription":"Sensorless Field Oriented Control of a PMSM with PLL Estimator",
       "ide":{
          "name":"MPLABX",
-         "semverRange":">=5.40.0"
+         "semverRange":">=6.20"
       },
       "compiler":{
-         "name":"XC16",
-         "semverRange":"^1.50.0"
+         "name":"XCDSC",
+         "semverRange":"^3.00"
       },
       "dfp":{
-         "name":"xxxxxxxxxxxxxxx",
-         "semverRange":">=x.x.x"
+         "name":"dsPIC33CH-MP_DFP",
+         "semverRange":">=1.15.378"
       },
 	  "configurator": {
          "name": "MCC",
@@ -30,13 +30,20 @@
          "content":{
             "metaDataVersion":"1.0.0",
             "category":"com.microchip.device",
-            "name":"xxxxxxxxxxxxxxx",
+            "name":"dsPIC33CH1024MP710",
             "versionRange":"*"
          }
       },
-      "keywords":[
-         "GPIO",
-         "UART"
+      "peripherals":[
+          "ADC",
+        "PWM"
+       ],
+       "keywords":[
+          "Motor Control",
+          "PMSM",
+          "Sensorless Control",
+          "FOC",
+          "dsPIC"
       ]
    }
 }
