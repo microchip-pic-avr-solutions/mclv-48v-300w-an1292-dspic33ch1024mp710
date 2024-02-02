@@ -135,7 +135,7 @@ int main ( void )
     {        
         /* Reset parameters used for running motor through Inverter A*/
         ResetParmeters();
-        
+
         while(1)
         {
             ResetSingleShuntSamplePoint(&singleShuntParam);
@@ -236,6 +236,8 @@ void ResetParmeters(void)
     /* Initialize measurement parameters */
     MCAPP_MeasureCurrentInit(&measureInputs);
 
+    MCAPP_MeasureAvgInit(&measureInputs.MOSFETTemperature,
+            MOSFET_TEMP_AVG_FILTER_SCALE);
     /* Enable ADC interrupt and begin main loop timing */
     ClearADCIF();
     adcDataBuffer = ClearADCIF_ReadADCBUF();
@@ -620,6 +622,7 @@ void __attribute__((__interrupt__,no_auto_psv)) _ADCInterrupt()
         measureInputs.potValue = (int16_t)( ADCBUF_SPEED_REF_A>>1);
         measureInputs.dcBusVoltage = (int16_t)( ADCBUF_VBUS_A>>1);
         
+        MCAPP_MeasureTemperature(&measureInputs,(int16_t)(ADCBUF_MOSFET_TEMP_A>>1));
         
         DiagnosticsStepIsr();
     }

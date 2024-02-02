@@ -125,7 +125,7 @@ void InitializeADCs (void)
        for the shared ADC core sample time.
        Ranges from 2 to 1025 TADCORE
        if SHRSAMC = 15 ,then Sampling time is 17 TADCORE */
-    ADCON2Hbits.SHRSAMC = 15;
+    ADCON2Hbits.SHRSAMC = 6;
 
     ADCON3L  = 0;
     /* ADC Reference Voltage Selection bits 
@@ -240,11 +240,13 @@ void InitializeADCs (void)
 	ADMOD0Hbits.SIGN10 = 0;
     /*Ibus*/
     ADMOD0Hbits.SIGN12 = 1;
+    /*MOSFET Temp*/
+    ADMOD0Hbits.SIGN13 = 0;
     /*ADMOD1L configures Output Data Sign for Analog inputs  AN16 to AN17 */
     ADMOD1L = 0x0000;
 	/*POT*/
     ADMOD1Lbits.SIGN19 = 0;
-    
+    ADMOD1Hbits.SIGN25 = 1;
     /* Ensuring all interrupts are disabled and Status Flags are cleared */
     ADIEL = 0;
     ADIEH = 0;
@@ -337,7 +339,7 @@ void InitializeADCs (void)
     
 
 #ifdef SINGLE_SHUNT
-    /* Trigger Source for Analog Input #13  = 0b0101 for Ibus */
+    /* Trigger Source for Analog Input #12  = 0b0101 for Ibus */
     ADTRIG3Lbits.TRGSRC12 = 0x5;
 #else
       /* Trigger Source for Analog Input #0  = 0b0100 for Ia */
@@ -347,7 +349,11 @@ void InitializeADCs (void)
 #endif
 	/* Trigger Source for Analog Input #10  = 0b0100 for Vbus */
     ADTRIG2Hbits.TRGSRC10 = 0x4;
-    /* Trigger Source for Analog Input #15  = 0b0100 for POT */
+	/* Trigger Source for Analog Input #10  = 0b0100 for MOSFET Temp */
+    ADTRIG3Lbits.TRGSRC13 = 0x4;
+    /* Trigger Source for Analog Input #19  = 0b0100 for POT */
     ADTRIG4Hbits.TRGSRC19 = 0x4;
+    /* Trigger Source for Analog Input #19  = 0b0100 for POT */
+    ADTRIG6Lbits.TRGSRC25 = 0x4;
     
 }

@@ -72,6 +72,8 @@
         
 #define ADCBUF_SPEED_REF_A      ADCBUF19
 #define ADCBUF_VBUS_A           ADCBUF10
+#define ADCBUF_MOSFET_TEMP_A    ADCBUF13
+        
 #ifdef SINGLE_SHUNT
 #define EnableADCInterrupt()   _ADCAN12IE = 1
 #define DisableADCInterrupt()  _ADCAN12IE = 0

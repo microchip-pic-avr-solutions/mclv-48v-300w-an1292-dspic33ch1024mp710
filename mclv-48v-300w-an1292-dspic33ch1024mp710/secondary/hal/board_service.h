@@ -1,18 +1,3 @@
-// <editor-fold defaultstate="collapsed" desc="Description/Instruction ">
-/**
- * board_service.h
- *
- * This header file lists interface functions - user interface 
- * 
- * Definitions in this file are for dsPIC33CH1024MP710 External Op-AMP MC DIM
- * plugged onto Motor Control Development board from Microchip.
- * 
- * Component: HAL - BOARD SERVICE
- * 
- */
-// </editor-fold>
-
-// <editor-fold defaultstate="collapsed" desc="Disclaimer ">
 /*******************************************************************************
 * Copyright (c) 2017 released Microchip Technology Inc.  All rights reserved.
 *
@@ -47,12 +32,9 @@
 * certify, or support the code.
 *
 *******************************************************************************/
-// </editor-fold>
-
 #ifndef __BOARD_SERVICE_H
 #define __BOARD_SERVICE_H
 
-// <editor-fold defaultstate="collapsed" desc="HEADER FILES ">
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -62,7 +44,6 @@
     extern "C" {
 #endif
 
-// <editor-fold defaultstate="collapsed" desc="VARIABLE TYPES ">
 /* Button Scanning State
 
   Description:
@@ -88,17 +69,14 @@ typedef struct
    bool logicState;
    bool status;
 } BUTTON_T;
-// </editor-fold>
 
-// <editor-fold defaultstate="expanded" desc="DEFINITIONS ">
 /** Button De-bounce in milli Seconds */
 #define	BUTTON_DEBOUNCE_COUNT      30
 /** The board service Tick is set as 1 millisecond - specify the count in terms 
     PWM ISR cycles (i.e. BOARD_SERVICE_TICK_COUNT = 1 milli Second / PWM period)*/
 #define BOARD_SERVICE_TICK_COUNT   20
-// </editor-fold>
 
-// <editor-fold defaultstate="expanded" desc="INTERFACE FUNCTIONS ">
+
 extern void DisablePWMOutputsInverterA(void);
 extern void EnablePWMOutputsInverterA(void);
 extern void ClearPWMPCIFaultInverterA(void);

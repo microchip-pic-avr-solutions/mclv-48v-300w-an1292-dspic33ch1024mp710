@@ -1,18 +1,3 @@
-// <editor-fold defaultstate="collapsed" desc="Description/Instruction ">
-/**
- * board_service.c
- *
- * This file includes board service routines like pushbutton scanning etc.
- * 
- * Definitions in this file are for dsPIC33CH1024MP710 External Op-AMP MC DIM
- * plugged onto Motor Control Development board from Microchip.
- * 
- * Component: Slave1 Core - HAL - BOARD SERVICE
- * 
- */
-// </editor-fold>
-
-// <editor-fold defaultstate="collapsed" desc="Disclaimer ">
 /*******************************************************************************
 * Copyright (c) 2017 released Microchip Technology Inc.  All rights reserved.
 *
@@ -47,10 +32,6 @@
 * certify, or support the code.
 *
 *******************************************************************************/
-// </editor-fold>
-
-// <editor-fold defaultstate="collapsed" desc="Header Files ">
-
 #include <stdint.h>
 #include <stdbool.h>
 #include "port_config.h"
@@ -60,13 +41,11 @@
 #include "pwm.h"
 #include "cmp.h"
 
-// <editor-fold defaultstate="expanded" desc="VARIABLES ">
 BUTTON_T buttonStartStop;
 BUTTON_T buttonSpeedHalfDouble;
-uint16_t boardServiceISRCounter = 0;
-// </editor-fold>
 
-// <editor-fold defaultstate="expanded" desc="FUNCTION DECLARATIONS ">
+uint16_t boardServiceISRCounter = 0;
+
 void DisablePWMOutputsInverterA(void);
 void EnablePWMOutputsInverterA(void);
 void ClearPWMPCIFaultInverterA(void);
@@ -81,8 +60,6 @@ void pwmDutyCycleLimitCheck(MC_DUTYCYCLEOUT_T *,uint16_t,uint16_t);
 
 static void ButtonGroupInitialize(void);
 static void ButtonScan(BUTTON_T * ,bool);
-
-// </editor-fold>
 
 bool IsPressed_Button1(void)
 {

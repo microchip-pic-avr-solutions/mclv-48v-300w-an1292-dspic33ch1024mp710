@@ -6,7 +6,7 @@
  * 
  * Definitions in this file are for dsPIC33CH1024MP710 MC DIM.
  * 
- * Component: Slave1 Core - HAL - UART1
+ * Component: Secondary Core - HAL - UART1
  * 
  */
 // </editor-fold>

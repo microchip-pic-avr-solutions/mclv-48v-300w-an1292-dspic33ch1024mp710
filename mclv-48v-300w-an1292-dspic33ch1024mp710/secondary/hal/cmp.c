@@ -158,7 +158,15 @@ void CMP1_Initialize(void)
         1 = Output is inverted
         0 = Output is non-inverted */
     DAC1CONLbits.CMPPOL = 0;
-    /** Comparator Input Source Select bits - Refer Data sheet for selection */
+    /** Comparator Input Source Select bits - Refer Data sheet for selection
+     *  111 Reserved
+        110 Reserved
+        101 SPGA2 input pin
+        100 SPGA1 input pin
+        011 CMPxD input pin
+        010 SPGA3 input pin
+        001 CMPxB input pin
+        000 CMPxA input pin */
     DAC1CONLbits.INSEL = 3;  
     /** Comparator Hysteresis Polarity Select bit
         1 = Hysteresis is applied to the falling edge of comparator output
