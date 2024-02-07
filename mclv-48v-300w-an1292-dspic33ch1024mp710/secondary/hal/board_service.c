@@ -40,6 +40,7 @@
 #include "adc.h"
 #include "pwm.h"
 #include "cmp.h"
+#include "delay.h"
 
 BUTTON_T buttonStartStop;
 BUTTON_T buttonSpeedHalfDouble;
@@ -182,9 +183,11 @@ void InitPeripherals(void)
     InitializeADCs();
     
     InitPWMGenerators();
-    
+    DisablePWMOutputsInverterA();
     /* Make sure ADC does not generate interrupt while initializing parameters*/
     DisableADCInterrupt();
+    /* Power On Reset Delay for Hardware*/
+    __delay_ms(350);
 }
 /**
  * Disable the PWM channels assigned for Inverter #A by overriding them to low state.
