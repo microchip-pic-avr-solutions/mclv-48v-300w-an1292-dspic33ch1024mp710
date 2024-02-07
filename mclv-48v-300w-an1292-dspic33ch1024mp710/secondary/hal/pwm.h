@@ -96,10 +96,10 @@
 #define LOOPTIME_MICROSEC       50
         
 // Specify bootstrap charging time in Seconds (mention at least 10mSecs)
-#define BOOTSTRAP_CHARGING_TIME_SECS 0.01
+#define BOOTSTRAP_CHARGING_TIME_SECS 0.02
   
 // Calculate Bootstrap charging time in number of PWM Half Cycles
-#define BOOTSTRAP_CHARGING_COUNTS (uint16_t)((BOOTSTRAP_CHARGING_TIME_SECS/LOOPTIME_SEC )* 2)
+#define BOOTSTRAP_CHARGING_COUNTS (uint16_t)(BOOTSTRAP_CHARGING_TIME_SECS/LOOPTIME_SEC )
         
 // Definition to enable or disable PWM Fault
 #define ENABLE_PWM_FAULT
