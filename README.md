@@ -44,7 +44,7 @@ This section describes hardware setup required for the demonstration.
 1. Motor currents are amplified on the MCLV-48V-300W Inverter Board. The firmware and DIM are configured to sample and convert external amplifier outputs to measure the motor currents needed to implement FOC. 
 
 2. Insert the **dsPIC33CH1024MP710 Motor Control DIM** into the DIM Interface **connector J8** on the MCLV-48V-300W Inverter Board. Make sure the DIM is placed correctly and oriented before going ahead.
------**Image Change**----
+
      <p align="left" >
      <img  src="images/dimconnected.PNG"></p>
 
@@ -105,7 +105,7 @@ The function of the Secondary Core (as defined in the Secondary Project **pmsm.X
 - To configure I/O ports and Secondary Core peripherals (such as PWM Generators PG1, PG2 and PG3, ADC Cores, UART1) required to function the firmware.
 - To execute the Motor Control Demo Application based on the Microchip Application note AN1292. 
 
-The firmware directory structure is shown below: **--Image Change--**
+The firmware directory structure is shown below:
 <p align="left">
 <img  src="images/firmwarestructure.png"></p>
 
