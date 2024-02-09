@@ -302,12 +302,10 @@ To view data plots continuously, uncheck **Single-shot.** When **Single-shot** i
 For additional information, refer following documents or links.
 1. AN1292 Application Note “[Sensorless Field Oriented Control (FOC) for a Permanent Magnet Synchronous Motor (PMSM) Using a PLL Estimator and Field Weakening (FW)](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ApplicationNotes/ApplicationNotes/01292A.pdf)”
 2. AN1299 Application Note “[Single-Shunt Three-Phase Current Reconstruction Algorithm for Sensorless FOC of a PMSM](http://ww1.microchip.com/downloads/en/appnotes/01299a.pdf)”
-3. AN2721 "[Getting Started with Dual Core](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ApplicationNotes/ApplicationNotes/AN2721-Getting-Started-with-Dual-Core-DS00002721A.pdf)" 
-4. MCLV-48V-300W Inverter Board User’s Guide [(DS50003297)](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU16/ProductDocuments/UserGuides/Motor-Control-Low-Voltage-48V-300W-Inverter-Board-Users-Guide-DS50003297.pdf) 
-5. dsPIC33CH1024MP710 Motor Control Dual In-Line Module (DIM) Information Sheet (DS50003069C)
-6. dsPIC33CH1024MP710 Family datasheet [(DS70005371D)](https://ww1.microchip.com/downloads/en/DeviceDoc/dsPIC33CH1024MP710-Family-Data-Sheet-DS70005371D.pdf)
-7. [Family Reference manuals (FRM) of dsPIC33CH1024MP710 family](https://www.microchip.com/en-us/product/dsPIC33CH1024MP710#document-table)
-8. MPLAB® X IDE User’s Guide [(DS50002027)](https://ww1.microchip.com/downloads/en/DeviceDoc/50002027E.pdf) or [MPLAB® X IDE help](https://microchipdeveloper.com/xwiki/bin/view/software-tools/x/)
-9. [MPLAB® X IDE installation](https://microchipdeveloper.com/xwiki/bin/view/software-tools/x/install-guide/)
-10. [MPLAB® XC-DSC Compiler installation](https://microchipdeveloper.com/xwiki/bin/view/software-tools/xc-dsc/install/)
-11. [Installation and setup of X2Cscope plugin for MPLAB X](https://x2cscope.github.io/docs/MPLABX_Plugin.html)
+3. MCLV-48V-300W Inverter Board User’s Guide [(DS50003297)](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU16/ProductDocuments/UserGuides/Motor-Control-Low-Voltage-48V-300W-Inverter-Board-Users-Guide-DS50003297.pdf) 
+4. dsPIC33CH1024MP710 Motor Control Dual In-Line Module (DIM) Information Sheet (DS50003069C)
+5. dsPIC33CH1024MP710 Family datasheet 
+6. MPLAB® X IDE User’s Guide [(DS50002027)](https://ww1.microchip.com/downloads/en/DeviceDoc/50002027E.pdf) or [MPLAB® X IDE help](https://microchipdeveloper.com/xwiki/bin/view/software-tools/x/)
+7. [MPLAB® X IDE installation](https://microchipdeveloper.com/xwiki/bin/view/software-tools/x/install-guide/)
+8. [MPLAB® XC-DSC Compiler installation](https://microchipdeveloper.com/xwiki/bin/view/software-tools/xc-dsc/install/)
+9. [Installation and setup of X2Cscope plugin for MPLAB X](https://x2cscope.github.io/docs/MPLABX_Plugin.html)
