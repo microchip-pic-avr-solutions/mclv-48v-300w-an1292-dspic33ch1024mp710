@@ -29,7 +29,7 @@ To clone or download this application firmware on GitHub,
 
 ### 2.3 Hardware Tools Required for the Demonstration
 - MCLV-48V-300W Inverter Board [(EV18H47A)](https://www.microchip.com/en-us/development-tool/ev18h47a)
-- dsPIC33CH1024MP710 Motor Control Dual In-line Module (EV44A73A)
+- dsPIC33CH1024MP710 Motor Control Dual In-line Module [(EV44A73A)](https://www.microchip.com/en-us/development-tool/ev44a73a)
 - 24V Power Supply [(AC002013)](https://www.microchipdirect.com/dev-tools/AC002013)
 - 24V 3-Phase Brushless DC Motor [(AC300020)](https://www.microchip.com/en-us/development-tool/AC300020)
 
